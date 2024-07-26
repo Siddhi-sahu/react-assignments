@@ -1,0 +1,45 @@
+.backgroundChangerBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: hsl(0, 0%, 95%);
+  padding: 10px;
+  position: fixed;
+  bottom: 40px;
+  width: 90%;
+  box-shadow: 4px 5px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  margin-left: 40px;
+  /* margin-right: 30px; */
+}
+
+button {
+  border: none;
+  background-color: antiquewhite;
+  padding: 12px 40px;
+  border-radius: 20px;
+}
+
+#red {
+  background-color: red;
+}
+
+#yellow {
+  background-color: yellow;
+}
+#black {
+  background-color: black;
+  color: white;
+}
+#purple {
+  background-color: purple;
+}
+#green {
+  background-color: green;
+}
+#blue {
+  background-color: blue;
+}
+#default {
+  background-color: orange;
+}
