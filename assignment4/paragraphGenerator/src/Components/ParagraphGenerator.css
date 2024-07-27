@@ -1,0 +1,45 @@
+/* body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} */
+
+.paragraphGenerator {
+  /* margin-top: 20px; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.inputInterface {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+#inputBox {
+  font-size: 20px;
+  margin: 10px;
+  width: 800px;
+  padding: 10px;
+}
+
+button {
+  font-size: 14px;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background-color: black;
+  color: white;
+}
+
+.inputPara {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 12px;
+  font-size: 21px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
