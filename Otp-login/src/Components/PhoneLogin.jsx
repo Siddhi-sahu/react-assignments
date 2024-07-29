@@ -1,15 +1,48 @@
-import React from "react";
+import React, { useState } from "react";
+import "./PhoneLogin.css";
+import OtpLogin from "./OtpLogin";
 
 const PhoneLogin = () => {
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [showOtpInput, setShowOtpInput] = useState(false);
+  const handleChange = (e) => {
+    setPhoneNumber(e.target.value);
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (phoneNumber.length !== 10 || isNaN(phoneNumber)) {
+      alert("invalid Mobile Number");
+      return;
+    }
+    setShowOtpInput(true);
+    console.log(phoneNumber);
+  };
+  const onSubmit = (otp) => {
+    console.log("Login Successful" + otp);
+  };
   return (
-    <div className="phoneLogin">
-      <div className="heading">Login via OTP</div>
-      <form onSubmit={() => {}}>
-        <input type="text" placeholder="Enter your mobile number" />
+    <>
+      {!showOtpInput ? (
+        <div className="phoneLogin">
+          <div className="heading">Login via OTP</div>
+          <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              placeholder="Enter your mobile number"
+              value={phoneNumber}
+              onChange={handleChange}
+            />
 
-        <button type="submit">Submit</button>
-      </form>
-    </div>
+            <button type="submit">Send OTP</button>
+          </form>
+        </div>
+      ) : (
+        <>
+          {/* <p>Otp sent Successfully to {phoneNumber}</p> */}
+          <OtpLogin length={4} onSubmit={onSubmit} phoneNumber={phoneNumber} />
+        </>
+      )}
+    </>
   );
 };
 
