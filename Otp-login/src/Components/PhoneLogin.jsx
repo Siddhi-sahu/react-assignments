@@ -35,10 +35,10 @@ const PhoneLogin = () => {
 
             <button type="submit">Send OTP</button>
           </form>
+          <p className="phoneHint">enter 10 digit Phone number</p>
         </div>
       ) : (
         <>
-          {/* <p>Otp sent Successfully to {phoneNumber}</p> */}
           <OtpLogin length={4} onSubmit={onSubmit} phoneNumber={phoneNumber} />
         </>
       )}

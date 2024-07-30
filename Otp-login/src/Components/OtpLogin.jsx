@@ -1,8 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./OtpLogin.css";
+import LoggedIn from "./LoggedIn";
 
 const OtpLogin = ({ length = 4, onSubmit = () => {}, phoneNumber }) => {
   const [otp, setOtp] = useState(new Array(length).fill(""));
+  const [showLogin, setShowLogin] = useState(false);
   const inputRefs = useRef([]);
 
   //focus on the first input field
@@ -32,6 +34,7 @@ const OtpLogin = ({ length = 4, onSubmit = () => {}, phoneNumber }) => {
 
     if (combinedOtp.length === length) {
       onSubmit(combinedOtp);
+      setShowLogin(true);
     }
 
     //move to next field if the current is filled
@@ -58,27 +61,34 @@ const OtpLogin = ({ length = 4, onSubmit = () => {}, phoneNumber }) => {
 
   //allow only one input in each field
   return (
-    <div className="OtpLogin">
-      <div className="heading">Enter Otp sent to {phoneNumber}</div>
-      <div>
-        {otp.map((value, index) => {
-          return (
-            <input
-              value={value}
-              key={index}
-              type="text"
-              ref={(input) => {
-                inputRefs.current[index] = input;
-              }}
-              className="otpInputFields"
-              onChange={(e) => handleChange(index, e)}
-              onClick={() => handleClick(index)}
-              onKeyDown={(e) => handleKeyDown(index, e)}
-            />
-          );
-        })}
-      </div>
-    </div>
+    <>
+      {!showLogin ? (
+        <div className="OtpLogin">
+          <div className="heading">Enter Otp sent to {phoneNumber}</div>
+          <div>
+            {otp.map((value, index) => {
+              return (
+                <input
+                  value={value}
+                  key={index}
+                  type="text"
+                  ref={(input) => {
+                    inputRefs.current[index] = input;
+                  }}
+                  className="otpInputFields"
+                  onChange={(e) => handleChange(index, e)}
+                  onClick={() => handleClick(index)}
+                  onKeyDown={(e) => handleKeyDown(index, e)}
+                />
+              );
+            })}
+          </div>
+          <p className="hint">enter any 4 digit number</p>
+        </div>
+      ) : (
+        <LoggedIn />
+      )}
+    </>
   );
 };
 

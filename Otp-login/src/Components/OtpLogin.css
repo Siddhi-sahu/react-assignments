@@ -26,3 +26,8 @@
   text-align: center;
   border: none;
 }
+
+.hint {
+  color: hsl(0, 0%, 50%);
+  margin-top: 230px;
+}

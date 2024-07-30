@@ -58,3 +58,8 @@ button {
   color: white;
   font-size: 15px;
 }
+
+.phoneHint {
+  color: hsl(0, 0%, 50%);
+  margin-top: 190px;
+}
