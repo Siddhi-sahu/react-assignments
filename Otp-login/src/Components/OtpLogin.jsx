@@ -19,13 +19,42 @@ const OtpLogin = ({ length = 4, onSubmit = () => {}, phoneNumber }) => {
 
     if (isNaN(value)) return;
 
-    setOtp(value);
-
     const newOtp = [...otp];
-    console.log(otp, newOtp);
+
+    //allow ONLY ONE input
+
+    newOtp[index] = value.substring(value.length - 1);
+
+    setOtp(newOtp);
+
+    //trigger submit on 4 inputs
+    const combinedOtp = newOtp.join("");
+
+    if (combinedOtp.length === length) {
+      onSubmit(combinedOtp);
+    }
+
+    //move to next field if the current is filled
+    if (value && inputRefs.current[index + 1] && index < length - 1) {
+      inputRefs.current[index + 1].focus();
+    }
   };
-  const handleClick = (e) => {};
-  const handleKeyDown = (index, e) => {};
+  const handleClick = (index) => {
+    //get the latest input/move cursor to the last
+    inputRefs.current[index].setSelectionRange(1, 1);
+  };
+  const handleKeyDown = (index, e) => {
+    //move to prev field if backspace
+
+    if (
+      e.key === "Backspace" &&
+      index > 0 &&
+      inputRefs.current[index - 1] &&
+      !otp[index]
+    ) {
+      inputRefs.current[index - 1].focus();
+    }
+  };
 
   //allow only one input in each field
   return (

@@ -18,7 +18,7 @@ const PhoneLogin = () => {
     console.log(phoneNumber);
   };
   const onSubmit = (otp) => {
-    console.log("Login Successful" + otp);
+    console.log("Login Successful " + otp);
   };
   return (
     <>
