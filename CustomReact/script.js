@@ -1,10 +1,13 @@
+let userPrompt = prompt(
+  "enter site you wanna visit. No typos/complex sht i have no validations"
+);
 //create object
 
 const ReactElement = {
   type: "a",
   props: {
-    href: "https://www.google.com/",
-    children: "Google",
+    href: `https://www.${userPrompt}.com/`,
+    children: `Click me to visit ${userPrompt}`,
   },
 };
 
