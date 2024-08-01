@@ -50,8 +50,8 @@ function App() {
           </div>
         </div>
       ) : (
-        <div className="flex justify-between">
-          <BdayCard name={name} />
+        <div className="flex justify-between m-3">
+          <BdayCard className="" name={name} />
           <BdayCard2 name={name} />
           <BdayCard3 name={name} />
         </div>
